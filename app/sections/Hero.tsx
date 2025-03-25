@@ -1,7 +1,12 @@
 import SocialIcons from "@/components/SocialIcons";
 import { Button } from "@/components/ui/button";
+import { getHeroContent } from "@/sanity/lib/client";
 
-const Hero = () => {
+const Hero = async () => {
+  const heroContent = await getHeroContent();
+
+  console.log(heroContent);
+
   return (
     <section className="bg-primaryColor">
       <div className="lg:main-wrapper flex items-center justify-center lg:max-xl:gap-4">
@@ -18,12 +23,11 @@ const Hero = () => {
 
               {/* //TODO; Make name dynamic with different colors */}
               <h1 className="text-tertiaryColor font-bold">
-                Chukwemeka Eziagulu.
+                {heroContent.mainTitle}
               </h1>
 
               <h1 className="text-textColor font-bold">
-                Web Developer & <br />
-                Mobile Developer
+                {heroContent.secondaryTitle}
               </h1>
             </div>
 
