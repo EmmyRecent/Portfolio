@@ -1,20 +1,22 @@
 type TitleProps = {
   name: string;
   number: string;
+  styles?: string;
 };
 
-const Title = ({ name, number }: TitleProps) => {
+const Title = ({ name, number, styles }: TitleProps) => {
   return (
-    <div className="mb-12 flex w-full items-center justify-start">
-      <h2 className="w-[150px] md:w-[200px]">
-        <span>
-          {">"}
-          {number}.
+    <div
+      className={`mb-12 flex w-full items-center ${styles ? styles : "justify-start"}`}
+    >
+      <h2 className="w-max">
+        <span className="inline">
+          {">"} {number}.
         </span>{" "}
         {name}
       </h2>
 
-      <div className="bg-textColor h-[2px] w-full max-w-[300px] md:max-w-[344.51px]"></div>
+      <div className="bg-textColor ml-4 h-[2px] max-w-[400px] flex-1"></div>
     </div>
   );
 };

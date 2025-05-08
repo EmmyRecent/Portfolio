@@ -74,13 +74,99 @@ export type Slug = {
   source?: string;
 };
 
+export type Faq = {
+  _id: string;
+  _type: "faq";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  title?: string;
+  subtitle?: string;
+  description?: string;
+  items?: Array<
+    {
+      _key: string;
+    } & FaqItem
+  >;
+};
+
+export type FaqItem = {
+  _type: "faqItem";
+  question?: string;
+  answer?: string;
+};
+
+export type Projects = {
+  _id: string;
+  _type: "projects";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  title?: string;
+  project?: Array<
+    {
+      _key: string;
+    } & ProjectItem
+  >;
+};
+
+export type ProjectItem = {
+  _type: "projectItem";
+  title?: string;
+  description?: string;
+  techStack?: Array<string>;
+  image?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  };
+  link?: string;
+};
+
+export type Services = {
+  _id: string;
+  _type: "services";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  title?: string;
+  items?: Array<
+    {
+      _key: string;
+    } & ServiceItem
+  >;
+};
+
+export type ServiceItem = {
+  _type?: "serviceItem";
+  title?: string;
+  description?: string;
+  Icon?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  };
+};
+
 export type About = {
   _id: string;
   _type: "about";
   _createdAt: string;
   _updatedAt: string;
   _rev: string;
-  name?: string;
+  title?: string;
   bio?: Array<{
     children?: Array<{
       marks?: Array<string>;
@@ -206,6 +292,12 @@ export type AllSanitySchemaTypes =
   | SanityFileAsset
   | Geopoint
   | Slug
+  | Faq
+  | FaqItem
+  | Projects
+  | ProjectItem
+  | Services
+  | ServiceItem
   | About
   | SanityImageCrop
   | SanityImageHotspot

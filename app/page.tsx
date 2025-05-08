@@ -1,6 +1,6 @@
-import React from "react";
-import { About, Hero } from "./sections";
+import { About, Faq, Hero, Next, Project, Services } from "./sections";
 import Nav from "../components/Nav";
+import Footer from "@/components/Footer";
 
 const Home = () => {
   return (
@@ -10,7 +10,13 @@ const Home = () => {
       <main>
         <Hero />
         <About />
+        <Services />
+        <Project />
+        <Faq />
+        <Next />
       </main>
+
+      <Footer />
     </>
   );
 };

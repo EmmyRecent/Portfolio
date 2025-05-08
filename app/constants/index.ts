@@ -12,7 +12,11 @@ export const navLinks = [
     label: "Projects",
   },
   {
-    href: "#Blog",
+    href: "#faq",
+    label: "Faq",
+  },
+  {
+    href: "blog",
     label: "Blog",
   },
 ];
