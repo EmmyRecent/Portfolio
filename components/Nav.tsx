@@ -5,8 +5,6 @@ import { motion } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { hamburger } from "../app/assets/icons";
-import { logo } from "../app/assets/images";
 import { navLinks } from "../app/constants";
 import { Button } from "./ui/button";
 
@@ -56,7 +54,6 @@ const Nav = () => {
   const [isNavOpen, setIsNavOpen] = useState(false);
   const [showHeader, setShowHeader] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
-  const scrollY = window.scrollY;
 
   // Toggle nav
   const handleNavMenu = () => {
@@ -129,13 +126,13 @@ const Nav = () => {
 
   return (
     <header
-      className={`fixed top-0 right-0 left-0 z-[100] transition-transform duration-300 ease-in-out ${!showHeader && scrollY >= 40 ? "-translate-y-full" : "translate-y-0"}`}
+      className={`fixed top-0 right-0 left-0 z-[100] transition-transform duration-300 ease-in-out ${!showHeader && lastScrollY >= 40 ? "-translate-y-full" : "translate-y-0"}`}
     >
       <div className="wrapper linear-border">
         <div className="linear-background my-4 flex justify-between px-3 py-1 lg:py-3">
           <Link href="/" className="z-[100]">
             <Image
-              src={logo}
+              src={"/logo.svg"}
               width={50}
               height={50}
               alt="Logo"
@@ -144,7 +141,7 @@ const Nav = () => {
           </Link>
 
           <Image
-            src={hamburger}
+            src={"/icons/hamburger.svg"}
             width={60}
             height={60}
             alt="Hamburger menu"

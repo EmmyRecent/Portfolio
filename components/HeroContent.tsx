@@ -1,6 +1,6 @@
 import SocialIcons from "@/components/SocialIcons";
-import { PortableText } from "next-sanity";
 import { Hero as HeroContentType } from "@/sanity/types";
+import { PortableText } from "next-sanity";
 import CustomButton from "./CustomButton";
 
 export type HeroProps = {
@@ -42,7 +42,7 @@ const HeroContent = ({ heroContent }: HeroProps) => {
             />
           </div>
 
-          <CustomButton text={heroContent.ctaText} />
+          <CustomButton text={heroContent.ctaText} href="/cv" />
 
           <div className="block lg:hidden">
             <SocialIcons />

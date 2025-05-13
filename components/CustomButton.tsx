@@ -12,7 +12,7 @@ type CustomButtonProps = {
 
 const CustomButton = ({ text, href, className }: CustomButtonProps) => {
   return (
-    <Link href={`${href}`}>
+    <Link href={`${href}`} className="w-max">
       <motion.div
         whileTap={{
           scale: 0.9,

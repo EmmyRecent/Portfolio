@@ -38,7 +38,7 @@ const FormSchema = z.object({
       invalid_type_error: "Message must be a string!",
     })
     .trim()
-    .min(1, "Message cannot be empty"),
+    .min(1, "Message cannot be empty!"),
 });
 
 export type State = {

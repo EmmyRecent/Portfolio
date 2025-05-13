@@ -5,7 +5,7 @@ const SocialIcons = () => {
   return (
     <div className="flex items-start gap-4 lg:flex-col">
       {socialIcons.map((icons, i) => (
-        <Link href={icons.iconName} key={i} className="social-icon">
+        <Link href={icons.href} key={i} className="social-icon">
           <i className={`${icons.className} z-10`}></i>
         </Link>
       ))}

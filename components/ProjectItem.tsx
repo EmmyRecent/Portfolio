@@ -66,12 +66,10 @@ const ProjectItem = async ({ projectContentItem }: ProjectContentItemProps) => {
                     ))}
                   </div>
 
-                  <Link href={contentItem.link ?? ""}>
-                    <motion.i
-                      whileHover={{ scale: 1.4 }}
-                      className="bx bx-link-external text-lg text-white lg:text-xl hover:text-secondaryColor duration-100"
-                    ></motion.i>
-                  </Link>
+                  <motion.i
+                    whileHover={{ scale: 1.4 }}
+                    className="bx bx-link-external text-lg text-white lg:text-xl hover:text-secondaryColor duration-100"
+                  ></motion.i>
                 </div>
               </div>
             </Link>
