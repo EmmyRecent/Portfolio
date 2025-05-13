@@ -18,6 +18,21 @@
 
   /* Fonts */
   --font-poppins: var(--font-poppins), sans-serif;
+
+  /* animation */
+  --animate-gradient: gradient 5s ease infinite;
+
+  @keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
 }
 
 /* Custom utilities */
@@ -38,7 +53,7 @@
 
 @layer base {
   * {
-    @apply border-border outline-ring/50;
+    @apply border-border outline-ring/50 scroll-smooth;
   }
 
   body {
@@ -74,7 +89,7 @@
   }
 
   section {
-    @apply flex min-h-screen items-center justify-center py-6;
+    @apply flex min-h-screen items-center justify-center py-14 md:py-6;
   }
 
   span {
@@ -122,7 +137,7 @@
 
   .nav-background::before {
     content: "";
-    @apply bg-primary fixed inset-0 z-30 overflow-y-hidden opacity-70 blur-3xl;
+    @apply bg-primaryColor fixed inset-0 z-40 h-screen overflow-y-hidden opacity-70 blur-3xl;
   }
 
   .about-image {
@@ -131,7 +146,66 @@
 
   .about-image::before {
     content: "";
-    @apply border-secondaryColor rounded-round absolute inset-0 translate-x-[25px] translate-y-[25px] border;
+    @apply border-secondaryColor rounded-round absolute inset-0 translate-x-[25px] translate-y-[25px] border transition-all ease-in-out;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .about-image:hover::before {
+    transform: translateX(-10px) translateY(-10px);
+  }
+
+  .active {
+    @apply text-secondaryColor scale-[1.2] font-semibold;
+  }
+
+  .social-icon {
+    @apply border-secondaryColor text-secondaryColor hover:text-primaryColor relative grid h-10 w-10 place-content-center rounded-full border text-lg duration-300 lg:h-12 lg:w-12 lg:text-xl;
+  }
+
+  .social-icon::before {
+    content: "";
+    @apply bg-secondaryColor absolute inset-0 h-full w-full scale-0 rounded-full transition-transform duration-300 ease-in-out;
+  }
+
+  .social-icon:hover::before {
+    @apply origin-center scale-100;
+  }
+
+  .navButton {
+    @apply text-secondaryColor relative cursor-pointer overflow-hidden duration-300;
+  }
+
+  .navButton::before {
+    content: "";
+    @apply bg-primaryColor/30 rounded-round absolute inset-0 z-30 h-full w-0 transition-all duration-300 ease-in-out;
+  }
+
+  .navButton:hover::before {
+    @apply w-full;
+  }
+
+  .button {
+    @apply text-secondaryColor relative cursor-pointer overflow-hidden duration-300;
+  }
+
+  .button::before {
+    content: "";
+    @apply bg-secondaryColor/10 rounded-round absolute inset-0 h-full w-0 transition-all duration-300 ease-in-out;
+  }
+
+  .button:hover::before {
+    @apply w-full;
+  }
+}
+
+@layer components {
+  /* Hero text animation  */
+  .gradient-animate {
+    background: linear-gradient(-45deg, #b66e10, #da5eff, #6970bd);
+    background-size: 400% 400%;
+    animation: var(--animate-gradient);
+    background-clip: text;
+    color: transparent;
   }
 }
 

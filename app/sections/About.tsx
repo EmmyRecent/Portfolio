@@ -1,57 +1,68 @@
 import Title from "@/components/Title";
+import { getAboutContent } from "@/sanity/lib/client";
+import { urlFor } from "@/sanity/lib/image";
+import * as motion from "motion/react-client";
+import { PortableText } from "next-sanity";
 import Image from "next/image";
-import { placeholder } from "../assets/images";
 
-const About = () => {
+export const containerVariants = {
+  hidden: {
+    y: 150,
+    opacity: 0,
+  },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.8,
+      ease: "easeOut",
+    },
+  },
+};
+
+const About = async () => {
+  const aboutContent = await getAboutContent();
+
+  // console.log("About content", aboutContent); // TODO: Revalidate data.
+
   return (
-    <section>
-      <div className="about-wrapper justify-centers flex flex-col items-center gap-4 lg:flex-row">
+    <section id="about">
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{
+          once: true,
+          amount: 0.4,
+        }}
+        className="about-wrapper justify-centers flex flex-col items-center gap-4 lg:flex-row"
+      >
         <div className="flex-1/2">
-          <Title name="About Me" number="01" />
+          <Title name={`${aboutContent.title}`} number="01" />
 
           <div className="w-full space-y-4">
-            <p>
-              Hey there! My name is <span>Chukwuemeka</span>, but you can call
-              me <span>Emmy</span> — because why not? 😊 Everyone does!
-            </p>
-
-            <p>
-              My journey into programming started in 2020 when I experimented
-              with my first <span>block-based language</span>, Scratch. Funny,
-              right? At the time, I had no idea this curiosity would turn into a
-              full-fledged passion for coding.
-            </p>
-
-            <p>
-              From secondary school to college, I’ve navigated the tech world as
-              both a self-taught developer and a computing student. Along the
-              way, I’ve worked on diverse projects that sharpened my expertise
-              in web and mobile development. With a strong foundation in{" "}
-              <span>JavaScript, React</span>, and{" "}
-              <span>full-stack technologies,</span> I’m always pushing
-              boundaries to create innovative, user-focused solutions.
-            </p>
-
-            <p>
-              Whether it’s building dynamic applications, optimising
-              performance, or crafting seamless user experiences, I love turning
-              ideas into reality.
-            </p>
-
-            <p>Let’s create something awesome together! 🚀</p>
+            <PortableText
+              value={aboutContent.bio || []}
+              components={{
+                marks: {
+                  strong: ({ children }) => <span>{children}</span>,
+                },
+              }}
+            />
           </div>
         </div>
 
-        <div className="about-image">
+        <div className="about-image group relative">
+          <div className="rounded-round absolute inset-0 z-10 h-full w-full border-none bg-gray-800 opacity-20 transition-opacity duration-300 ease-out group-hover:opacity-0"></div>
           <Image
-            src={placeholder}
+            src={aboutContent.image ? urlFor(aboutContent.image).url() : ""}
             alt="Profile Photo"
             width={345}
             height={307}
             className="about-image"
           />
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };

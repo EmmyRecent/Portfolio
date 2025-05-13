@@ -1,13 +1,13 @@
 import { socialIcons } from "@/app/constants";
+import Link from "next/link";
 
 const SocialIcons = () => {
   return (
     <div className="flex items-start gap-4 lg:flex-col">
       {socialIcons.map((icons, i) => (
-        <i
-          key={i}
-          className={`${icons.className} text-textColor border-textColor grid cursor-pointer place-items-center rounded-full border p-3 text-lg lg:text-xl`}
-        ></i>
+        <Link href={icons.href} key={i} className="social-icon">
+          <i className={`${icons.className} z-10`}></i>
+        </Link>
       ))}
     </div>
   );
