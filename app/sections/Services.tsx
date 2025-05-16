@@ -4,6 +4,8 @@ import { getServiceContent } from "@/sanity/lib/client";
 import * as motion from "motion/react-client";
 import { containerVariants } from "./About";
 
+export const revalidate = 60;
+
 const Services = async () => {
   const servicesContent = await getServiceContent();
 

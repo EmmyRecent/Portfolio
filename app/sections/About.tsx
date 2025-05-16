@@ -5,6 +5,8 @@ import * as motion from "motion/react-client";
 import { PortableText } from "next-sanity";
 import Image from "next/image";
 
+export const revalidate = 60;
+
 export const containerVariants = {
   hidden: {
     y: 150,
@@ -22,8 +24,6 @@ export const containerVariants = {
 
 const About = async () => {
   const aboutContent = await getAboutContent();
-
-  // console.log("About content", aboutContent); // TODO: Revalidate data.
 
   return (
     <section id="about">

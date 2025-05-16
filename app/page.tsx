@@ -1,6 +1,6 @@
-import { About, Faq, Hero, Next, Project, Services } from "./sections";
-import Nav from "../components/Nav";
 import Footer from "@/components/Footer";
+import Nav from "../components/Nav";
+import { About, Faq, Hero, Next, Project, Services } from "./sections";
 
 const Home = () => {
   return (

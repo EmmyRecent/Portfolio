@@ -2,6 +2,8 @@ import HeroContent from "@/components/HeroContent";
 import { getHeroContent } from "@/sanity/lib/client";
 import * as motion from "motion/react-client";
 
+export const revalidate = 60;
+
 const heroVariants = {
   hidden: {
     x: -100,
