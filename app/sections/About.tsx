@@ -23,8 +23,6 @@ export const containerVariants = {
 const About = async () => {
   const aboutContent = await getAboutContent();
 
-  // console.log("About content", aboutContent); // TODO: Revalidate data.
-
   return (
     <section id="about">
       <motion.div
