@@ -13,13 +13,17 @@ export const client = createClient({
 // Hero content data
 export const getHeroContent = async (): Promise<Hero> => {
   try {
-    const result = await client.fetch<Hero>(`*[_type == "hero"][0] {
+    const result = await client.fetch<Hero>(
+      `*[_type == "hero"][0] {
       mainTitle, 
       secondaryTitle,
       subtitle,
       ctaText,
       ctaLink
-    }`);
+    }`,
+      {},
+      { next: { revalidate: 60 } },
+    );
 
     if (!result) throw new Error("Hero content not found!");
 
@@ -34,12 +38,16 @@ export const getHeroContent = async (): Promise<Hero> => {
 // About content data
 export const getAboutContent = async (): Promise<About> => {
   try {
-    const result = await client.fetch(`*[_type == "about"][0] {
+    const result = await client.fetch(
+      `*[_type == "about"][0] {
       title,
       name, 
       image,
       bio
-    }`);
+    }`,
+      {},
+      { next: { revalidate: 60 } },
+    );
 
     if (!result) throw new Error("About content not found!");
 
@@ -54,14 +62,18 @@ export const getAboutContent = async (): Promise<About> => {
 // Services content data.
 export const getServiceContent = async (): Promise<Services> => {
   try {
-    const result = await client.fetch(`*[_type == "services"][0] {
+    const result = await client.fetch(
+      `*[_type == "services"][0] {
       title,
       items[] {
         title,
         description,
         Icon
       }
-    }`);
+    }`,
+      {},
+      { next: { revalidate: 60 } },
+    );
 
     if (!result) throw new Error("Service content not found!");
 
@@ -76,7 +88,8 @@ export const getServiceContent = async (): Promise<Services> => {
 // Project content data.
 export const getProjectContent = async (): Promise<Projects> => {
   try {
-    const result = await client.fetch(`*[_type == "projects"][0] {
+    const result = await client.fetch(
+      `*[_type == "projects"][0] {
       title,
       project[] {
         title,
@@ -85,7 +98,10 @@ export const getProjectContent = async (): Promise<Projects> => {
         techStack,
         link
       }
-}`);
+}`,
+      {},
+      { next: { revalidate: 60 } },
+    );
 
     if (!result) throw new Error("Project content not found!");
 
@@ -100,7 +116,8 @@ export const getProjectContent = async (): Promise<Projects> => {
 // FAQ content data.
 export const getFaqContent = async (): Promise<Faq> => {
   try {
-    const result = await client.fetch(`*[_type == "faq"][0] {
+    const result = await client.fetch(
+      `*[_type == "faq"][0] {
       description,
       title,
       subtitle,
@@ -108,7 +125,10 @@ export const getFaqContent = async (): Promise<Faq> => {
         question,
         answer
       }
-    }`);
+    }`,
+      {},
+      { next: { revalidate: 60 } },
+    );
 
     if (!result) throw new Error("FAQ content not found!");
 

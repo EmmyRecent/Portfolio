@@ -9,8 +9,6 @@ import { Accordion } from "@radix-ui/react-accordion";
 import * as motion from "motion/react-client";
 import { containerVariants } from "./About";
 
-export const revalidate = 60;
-
 const Faq = async () => {
   const faqContent = await getFaqContent();
 

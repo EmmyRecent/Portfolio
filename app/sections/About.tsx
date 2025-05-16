@@ -5,8 +5,6 @@ import * as motion from "motion/react-client";
 import { PortableText } from "next-sanity";
 import Image from "next/image";
 
-export const revalidate = 60;
-
 export const containerVariants = {
   hidden: {
     y: 150,

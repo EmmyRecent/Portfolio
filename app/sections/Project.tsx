@@ -5,8 +5,6 @@ import * as motion from "motion/react-client";
 import Image from "next/image";
 import { containerVariants } from "./About";
 
-export const revalidate = 60;
-
 const Project = async () => {
   const projectContent = await getProjectContent();
   const icons = [
