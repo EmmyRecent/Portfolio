@@ -18,9 +18,10 @@ const Next = () => {
         <h3 className="text-textColor font-medium capitalize">Get in touch</h3>
 
         <p className="mb-4 w-full max-w-[500px]">
-          Although I&apos;m Always open for any new opportunities, my inbox is
-          open. Whether you have a question or just want to say hi, I&apos;ll
-          try my best to get back
+          I&apos;m always excited to connect with new people and explore
+          opportunities. Whether you have a question, a project idea, or just
+          want to say hello, feel free to drop me a message. I&apos;ll do my
+          best to respond promptly and help however I can.
         </p>
 
         <CustomButton text="Contact Me!" href="contact" />
