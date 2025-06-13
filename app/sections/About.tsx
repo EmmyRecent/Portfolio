@@ -57,7 +57,7 @@ const About = async () => {
             alt="Profile Photo"
             width={345}
             height={307}
-            className="about-image"
+            className="about-image rounded-round"
           />
         </div>
       </motion.div>

@@ -1,12 +1,12 @@
 import { type SchemaTypeDefinition } from "sanity";
-import { hero } from "./hero";
 import { about } from "./about";
-import { serviceItems } from "./serviceItem";
-import { services } from "./services";
+import { faq } from "./faq";
+import { faqItem } from "./faqItem";
+import { hero } from "./hero";
 import { projectItem } from "./projectItem";
 import { projects } from "./projects";
-import { faqItem } from "./faqItem";
-import { faq } from "./faq";
+import { serviceItems } from "./serviceItem";
+import { services } from "./services";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
