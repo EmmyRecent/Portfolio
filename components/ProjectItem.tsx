@@ -83,7 +83,4 @@ const ProjectItem = async ({ projectContentItem }: ProjectContentItemProps) => {
   );
 };
 
-// TODO: Make the buttons only display on large screens and make them a different button.
-// TODO: something here...
-
 export default ProjectItem;

@@ -15,7 +15,7 @@ const Contact = () => {
               </h3>
 
               <p className="text-textColor text-center font-medium">
-                I create elegantly simple designs and code with passion. It`s as
+                I create elegantly simple designs and code with passion. It&apos;s as
                 straightforward as that!
               </p>
 

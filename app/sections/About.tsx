@@ -23,8 +23,6 @@ export const containerVariants = {
 const About = async () => {
   const aboutContent = await getAboutContent();
 
-  // console.log("About content", aboutContent); // TODO: Revalidate data.
-
   return (
     <section id="about">
       <motion.div
@@ -59,7 +57,7 @@ const About = async () => {
             alt="Profile Photo"
             width={345}
             height={307}
-            className="about-image"
+            className="about-image rounded-round"
           />
         </div>
       </motion.div>
