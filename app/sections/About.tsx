@@ -1,4 +1,5 @@
 import Title from "@/components/Title";
+import VideoPlayer from "@/components/VideoPlayer";
 import { getAboutContent } from "@/sanity/lib/client";
 import { urlFor } from "@/sanity/lib/image";
 import * as motion from "motion/react-client";
@@ -24,7 +25,10 @@ const About = async () => {
   const aboutContent = await getAboutContent();
 
   return (
-    <section id="about">
+    <section
+      id="about"
+      className="flex flex-col justify-center items-center gap-24 main-wrapper"
+    >
       <motion.div
         variants={containerVariants}
         initial="hidden"
@@ -61,6 +65,8 @@ const About = async () => {
           />
         </div>
       </motion.div>
+
+      <VideoPlayer />
     </section>
   );
 };
