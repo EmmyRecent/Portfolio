@@ -1,4 +1,6 @@
-export const metadata = {
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
   title: "CV - Chukwuemeka",
   description: "Download or view the cv of Chukwuemeka Eziagulu.",
 };

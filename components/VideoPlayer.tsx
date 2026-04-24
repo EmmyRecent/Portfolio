@@ -45,7 +45,7 @@ const VideoPlayer = () => {
 
       hideButtonTimer.current = setTimeout(() => {
         setShowButton(false);
-      }, 2000);
+      }, 1000);
     }
   };
 
@@ -79,7 +79,7 @@ const VideoPlayer = () => {
               exit={{ opacity: 0 }}
             >
               <Button
-                className="bg-primary/90 rounded-full size-20 absolute inset-0 justify-self-center place-self-center"
+                className="bg-primary/90 rounded-full size-10 lg:size-16 absolute inset-0 justify-self-center place-self-center"
                 onClick={handlePlay}
               >
                 {isPlaying ? <Pause size={64} /> : <Play />}
@@ -91,6 +91,7 @@ const VideoPlayer = () => {
 
       <video
         ref={videoRef}
+        playsInline
         onPlay={() => setIsPlaying(true)}
         onPause={() => setIsPlaying(false)}
         onEnded={() => {
